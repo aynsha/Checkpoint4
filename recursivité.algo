@@ -1,0 +1,30 @@
+FUNCTION Exple_palindrome(mot, i, j) : INTEGER
+VAR
+
+BEGIN
+    IF (i==j And mot.lenght[i]==mot.lenght[j] ) THEN
+        Return Write("votre mot est un palindrome")
+    END_IF
+    IF (i==j And mot.lenght[i]<>mot.lenght[j]) THEN
+        Return Write("votre mot n'est pas un palindrome")
+    END_IF
+    IF (i<>j And mot.lenght[i]==mot.lenght[j]) THEN
+        Exple_palindrome(mot,i+1,j-1)
+    END_IF 
+END
+
+ALGORITHM palindrome
+VAR
+    mot: STRING;
+    i,j: INTEGER
+BEGIN
+    Write("Entrez un mot:")
+    Read(mot);
+    i:=0;
+    j:=mot.lenght-1;
+    WHILE (mot.lenght<=1 ) DO
+        Write("Entrez un mot:")
+    Read(mot);
+    END_WHILE
+    EXPLE_palindrome(mot, i, j)
+END
